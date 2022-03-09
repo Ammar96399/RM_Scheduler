@@ -6,8 +6,6 @@ from math import gcd
 from matplotlib import pyplot as plt
 import numpy as np
 
-from RM_Exemple import estimatePriority
-
 tasks = {}
 hyperperiod = 0
 dataTask = {}
@@ -15,7 +13,7 @@ task_bis = {}
 y_axis  = []
 from_x = []
 to_x = []
-nbTasks = 0
+
 
 """
 This function is used by the user to enter the data of the task they 
@@ -27,7 +25,10 @@ wish to schedule. The data should be presented as:
         * Deadline of task (usualy same as period)
 """
 def EnterData():
-    nbTasks = int(input("\nEnter the number of tasks you wish to schedule: "))
+    global nbTasks
+    global dataTask
+    
+    nbTasks = int(input("\nEnter the number of tasks to schedule: "))
 
     dataTask = {}
     # Storing data for every task in a dictionary
