@@ -60,18 +60,23 @@ def Hyperperiod():
     print("\n Hyperperiod: ", hyperperiod)
     return hyperperiod
 
-
+"""
+Functtion to calculaate the priority of each task
+Takes the list of tasks in params
+Returns the index of the highest priority task 
+"""
 def Priorities(task_bis):
     tempPeriod = hyperperiod
-    P = -1    #Returns -1 for idle tasks
+    P = -1    #Returns -1 for if tasks is idle
     for i in tasks.keys():
         if (task_bis[i]["WCET"] != 0):
             if (tempPeriod > task_bis[i]["Period"] or tempPeriod > tasks[i]["Period"]):
-                tempPeriod = tasks[i]["Period"] #Checks the priority of each task based on period
+                tempPeriod = tasks[i]["Period"]
                 P = i
     return P
 
 """
+The main scheduling function
 Takes the hyperperiod in params 
 """
 def Scheduling(hyperperiod):
